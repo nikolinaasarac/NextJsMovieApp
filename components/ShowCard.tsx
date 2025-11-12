@@ -12,6 +12,8 @@ export default function ShowCard({data}:Props){
             <Image
                 src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
                 alt={data.title}
+                width={800}
+                height={800}
                 className="w-full h-64 object-cover"
             />
 
