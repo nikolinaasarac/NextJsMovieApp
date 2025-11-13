@@ -24,5 +24,19 @@ export const moviesService = {
             }
         });
         return response.data;
+    },
+    async getMovie(id: string) {
+        const response = await baseApi.get(`movie/${id}`);
+        return response.data;
+    },
+
+    async getTvShow(id: string) {
+        const response = await baseApi.get(`tv/${id}`);
+        return response.data;
+    },
+
+    async getMovieTrailer(id: number) {
+        const response = await baseApi.get(`movie/${id}/videos`);
+        return response.data;
     }
 }
