@@ -8,5 +8,21 @@ export const moviesService = {
     async getTopShows() {
         const response = await baseApi.get("tv/popular");
         return response.data;
+    },
+    async searchMovies(searchTerm: string) {
+        const response = await baseApi.get("search/movie",{
+            params: {
+                query: searchTerm
+            }
+        });
+        return response.data;
+    },
+    async searchTvShows(searchTerm: string) {
+        const response = await baseApi.get("search/tv",{
+            params: {
+                query: searchTerm
+            }
+        });
+        return response.data;
     }
 }
