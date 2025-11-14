@@ -1,4 +1,5 @@
 import baseApi from "@/lib/api/baseApi";
+import {Video} from "@/models/Video";
 
 export const moviesService = {
     async getTopMovies() {
@@ -35,8 +36,13 @@ export const moviesService = {
         return response.data;
     },
 
-    async getMovieTrailer(id: number) {
-        const response = await baseApi.get(`movie/${id}/videos`);
-        return response.data;
+    async getMovieTrailer(id: string): Promise<Video[]> {
+        const res = await baseApi.get<{ results: Video[] }>(`/movie/${id}/videos`);
+        return res.data.results.filter((v) => v.type === "Trailer" && v.name === "Official Trailer");
+    },
+
+    async getTvShowTrailer(id: string): Promise<Video[]> {
+        const res = await baseApi.get<{ results: Video[] }>(`/tv/${id}/videos`);
+        return res.data.results.filter((v) => v.type === "Trailer" && v.name === "Official Trailer");
     }
 }
