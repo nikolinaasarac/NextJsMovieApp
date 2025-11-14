@@ -1,23 +1,21 @@
 "use client";
 
-import { useParams } from "next/navigation";
-import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import DetailedCard from "@/components/DetailedCard";
 
 export default function MediaDetails() {
     const params = useParams();
+    const router = useRouter();
 
-    const id = params.id?.toString();     // <-- FIX
-    const type = params.type?.toString(); // <-- FIX
+    const id = params.id?.toString();
+    const type = params.type?.toString();
 
     if (!id || !type) return null;
 
     return (
         <div className="p-4">
-            <Link href={`/${type}`}>
-                <Button>Back</Button>
-            </Link>
+            <Button onClick={() => router.back()}>Back</Button>
 
             <DetailedCard
                 id={id}
