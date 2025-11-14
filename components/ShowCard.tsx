@@ -1,3 +1,4 @@
+"use client"
 import {Movie} from "@/models/Movie";
 import {Card, CardHeader, CardTitle} from "@/components/ui/card";
 import Image from "next/image";
