@@ -42,12 +42,13 @@ export default function MediaDetails() {
         fetchTrailer();
     }, [id, mediaType]);
 
-    // Skeleton dok se učitava bilo što (details ili trailer)
     const loading = detailsLoading || loadingTrailer || !details;
+
+    console.log(details);
 
     return (
         <div className="p-4 max-w-4xl mx-auto">
-            <Button onClick={() => router.back()} className="ml-4 mb-4">
+            <Button onClick={() => router.back()} className="ml-4 mb-4 cursor-pointer">
                 Back
             </Button>
 

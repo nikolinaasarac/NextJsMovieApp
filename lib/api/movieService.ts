@@ -33,6 +33,7 @@ export const moviesService = {
 
     async getTvShow(id: string) {
         const response = await baseApi.get(`tv/${id}`);
+        console.log(response.data);
         return response.data;
     },
 

@@ -26,6 +26,18 @@ export function useMediaDetails(id: string, type: "movie" | "tv") {
                     overview: data.overview,
                     image: data.backdrop_path || data.poster_path,
                     rating: data.vote_average,
+                    genres: data.genres.map(g => g.name),
+                    creators: "created_by" in data ? data.created_by.map(c => c.name) : undefined,
+                    production: "production_companies" in data ?
+                        data.production_companies.map(p => p.name) : undefined,
+                    status: data.status,
+                    originalLanguage: data.original_language,
+                    popularity: data.popularity,
+                    tagline: data.tagline,
+                    seasons: "seasons" in data ? data.seasons.length : undefined,
+                    episodes: "seasons" in data && Array.isArray(data.seasons)
+                        ? data.seasons.reduce((sum, s) => sum + (s.episode_count || 0), 0)
+                        : undefined,
                 };
 
                 setDetails(media);

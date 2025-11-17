@@ -13,4 +13,16 @@ export interface Movie {
     video: boolean
     vote_average: number
     vote_count: number
+    genres: {
+        id: number,
+        name: string,
+    }[]
+    production_companies: {
+        id: number
+        logo_path?: string
+        name: string
+        origin_country: string
+    }[]
+    status: string,
+    tagline: string
 }
