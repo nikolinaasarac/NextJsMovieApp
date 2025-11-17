@@ -30,8 +30,10 @@ export default function ShowCard({data}:Props){
                     />
                 </div>
 
-                <CardHeader>
-                    <CardTitle className="pb-4">{title}</CardTitle>
+                <CardHeader className="h-16 overflow-hidden">
+                    <CardTitle className="text-sm sm:text-base md:text-lg line-clamp-2">
+                        {title}
+                    </CardTitle>
                 </CardHeader>
             </Card>
         </Link>
