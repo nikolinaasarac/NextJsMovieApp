@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { Video } from "@/models/Video";
+import {MediaDetails} from "@/models/MediaDetails";
 
 interface Props {
-    details: any; // možeš tipizirati prema svom interfejsu
+    details: MediaDetails; // možeš tipizirati prema svom interfejsu
     trailer: Video | null;
 }
 
