@@ -68,23 +68,43 @@ export default function Home() {
         loadData();
     }, [activeTab, searchTerm]);
 
+    if (loading) {
+        return (
+            <div className="p-4">
+                <div className="max-w-[1470px] mx-auto">
+                <TabSelector activeTab={activeTab} onTabChange={setActiveTab} />
+                <Search onSearch={setSearchTerm} value={searchTerm} />
+
+                <div className="max-w-[1400px] mx-auto pt-6 grid gap-4 justify-center
+                            grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
+                    {Array.from({ length: 10 }).map((_, i) => (
+                        <ShowCardSkeleton key={i} />
+                    ))}
+                </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="p-4">
-            <TabSelector activeTab={activeTab} onTabChange={setActiveTab} />
-            <Search onSearch={setSearchTerm} value={searchTerm} />
+            <div className="max-w-[1470px] mx-auto">
+                {/* Tabovi i search */}
+                <TabSelector activeTab={activeTab} onTabChange={setActiveTab} />
+                <Search onSearch={setSearchTerm} value={searchTerm} />
 
-            {error && <p className="text-red-500">{error}</p>}
+                {error && <p className="text-red-500">{error}</p>}
 
-            <div className="max-w-[1400px] mx-auto
-    pt-6 grid gap-4 justify-center
-    grid-cols-[repeat(auto-fit,minmax(250px,1fr))]
-">
-                {loading
-                    ? Array.from({ length: 8 }).map((_, i) => <ShowCardSkeleton key={i} />)
-                    : data?.length
-                        ? data.map((d) => <ShowCard key={d.id} data={d} />)
-                        : <p>No results found.</p>
-                }
+                {/* Grid sa karticama */}
+                <div className="pt-6 grid gap-4 justify-center
+                            grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
+                    {loading
+                        ? Array.from({ length: 10 }).map((_, i) => <ShowCardSkeleton key={i} />)
+                        : data?.length
+                            ? data.map((d) => <ShowCard key={d.id} data={d} />)
+                            : <p>No results found.</p>
+                    }
+                </div>
             </div>
         </div>
     );
