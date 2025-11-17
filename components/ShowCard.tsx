@@ -18,7 +18,8 @@ export default function ShowCard({data}:Props){
         <Link href={path}>
             <Card
                 className="p-0 overflow-hidden transition-all duration-300
-    hover:scale-105 hover:shadow-lg hover:border hover:border-amber-600"
+       hover:scale-105 hover:shadow-lg hover:border hover:border-amber-600
+       w-[160px] sm:w-[200px] md:w-[258px]"
             >
                 <div className="w-full aspect-[2/3] relative overflow-hidden">
                     <Image
@@ -29,10 +30,10 @@ export default function ShowCard({data}:Props){
                     />
                 </div>
 
-            <CardHeader>
-                <CardTitle className="pb-4">{title}</CardTitle>
-            </CardHeader>
-        </Card>
+                <CardHeader>
+                    <CardTitle className="pb-4">{title}</CardTitle>
+                </CardHeader>
+            </Card>
         </Link>
     )
 }
