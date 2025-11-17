@@ -53,9 +53,11 @@ export default function Home() {
                     if (activeTab === "movies") {
                         const res = await moviesService.getTopMovies();
                         setData(res.results.slice(0, 10));
+                        console.log(res.results.slice(0, 10));
                     } else {
                         const res = await moviesService.getTopShows();
                         setData(res.results.slice(0, 10));
+                        console.log(res.results.slice(0, 10));
                     }
                 }
             } catch {
@@ -71,13 +73,11 @@ export default function Home() {
     return (
         <div className="p-4">
             <div className="max-w-[1470px] mx-auto">
-                {/* Tabovi i search */}
                 <TabSelector activeTab={activeTab} onTabChange={setActiveTab} />
                 <Search onSearch={setSearchTerm} value={searchTerm} />
 
                 {error && <p className="text-red-500">{error}</p>}
 
-                {/* Grid sa karticama */}
                 <div className="pt-6 grid gap-4 justify-center
     grid-cols-[repeat(auto-fit,minmax(250px,1fr))] items-stretch">
                     {loading || !data

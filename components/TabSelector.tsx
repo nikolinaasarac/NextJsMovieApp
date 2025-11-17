@@ -10,8 +10,8 @@ export default function TabSelector({ activeTab, onTabChange }: TabSelectorProps
     return (
         <Tabs value={activeTab} onValueChange={onTabChange}>
             <TabsList>
-                <TabsTrigger value="movies">Movies</TabsTrigger>
-                <TabsTrigger value="shows">TV Shows</TabsTrigger>
+                <TabsTrigger value="movies"  className="cursor-pointer">Movies</TabsTrigger>
+                <TabsTrigger value="shows"  className="cursor-pointer">TV Shows</TabsTrigger>
             </TabsList>
         </Tabs>
     );

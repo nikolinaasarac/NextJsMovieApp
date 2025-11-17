@@ -7,15 +7,22 @@ export default function ShowCardSkeleton() {
         <div
             className="p-0 overflow-hidden transition-all duration-300
                        rounded-xl border border-transparent
-                       w-[160px] sm:w-[200px] md:w-[258px]"
+                       w-[160px] sm:w-[200px] md:w-[258px] cursor-pointer"
         >
-            <div className="w-full aspect-[2/3] relative overflow-hidden">
+            {/* Poster */}
+            <div className="w-full aspect-[2/3] relative overflow-hidden flex-shrink-0">
                 <Skeleton className="absolute inset-0 w-full h-full rounded-none" />
             </div>
 
-            {/* Title placeholder */}
-            <div className="p-4">
-                <Skeleton className="h-5 w-3/4 rounded-md mx-auto" />
+            {/* Naslov */}
+            <div className="p-2 sm:p-3">
+                <Skeleton className="h-4 sm:h-5 md:h-6 w-3/4 rounded-md mb-2 mx-auto" />
+                <Skeleton className="h-4 sm:h-5 w-1/2 rounded-md mx-auto" /> {/* opcionalno drugi red naslova */}
+            </div>
+
+            {/* Vote Average */}
+            <div className="p-2 sm:p-3">
+                <Skeleton className="h-3 sm:h-4 w-1/3 rounded-md mx-auto" />
             </div>
         </div>
     );
