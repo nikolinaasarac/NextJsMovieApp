@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import {notFound, useParams, useRouter} from "next/navigation";
 import { Button } from "@/components/ui/button";
 import DetailedCard from "@/components/DetailedCard";
 import DetailedCardSkeleton from "@/components/skeleton/DetailedCardSkeleton";
@@ -44,7 +44,9 @@ export default function MediaDetails() {
 
     const loading = detailsLoading || loadingTrailer || !details;
 
-    console.log(details);
+    if (!details && !detailsLoading) {
+        notFound();
+    }
 
     return (
         <div className="p-4 max-w-4xl mx-auto">

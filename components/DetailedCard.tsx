@@ -10,7 +10,6 @@ interface Props {
 }
 
 export default function DetailedCard({ details, trailer }: Props) {
-    if (!details) return null;
     console.log(details);
     return (
         <div className="max-w-5xl mx-auto p-6 space-y-8">

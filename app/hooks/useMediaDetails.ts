@@ -51,5 +51,6 @@ export function useMediaDetails(id: string, type: "movie" | "tv") {
         fetchMedia();
     }, [id, type]);
 
+
     return { details, loading };
 }
