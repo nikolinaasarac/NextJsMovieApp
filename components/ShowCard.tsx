@@ -16,17 +16,21 @@ export default function ShowCard({data}:Props){
     const path = isMovie ? `/movies/${data.id}` : `/shows/${data.id}`;
     return (
         <Link href={path}>
-        <Card>
-            <Image
-                src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-                alt={title}
-                width={800}
-                height={800}
-                className="w-full h-64 object-cover"
-            />
+            <Card
+                className="p-0 overflow-hidden transition-all duration-300
+    hover:scale-105 hover:shadow-lg hover:border hover:border-amber-600"
+            >
+                <div className="w-full aspect-[2/3] relative overflow-hidden">
+                    <Image
+                        src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+                        alt={title}
+                        fill
+                        className="object-cover"
+                    />
+                </div>
 
             <CardHeader>
-                <CardTitle>{title}</CardTitle>
+                <CardTitle className="pb-4">{title}</CardTitle>
             </CardHeader>
         </Card>
         </Link>

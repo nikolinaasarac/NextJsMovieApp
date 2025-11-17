@@ -75,7 +75,10 @@ export default function Home() {
 
             {error && <p className="text-red-500">{error}</p>}
 
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mt-4">
+            <div className="max-w-[1400px] mx-auto
+    pt-6 grid gap-4 justify-center
+    grid-cols-[repeat(auto-fit,minmax(250px,1fr))]
+">
                 {loading
                     ? Array.from({ length: 8 }).map((_, i) => <ShowCardSkeleton key={i} />)
                     : data?.length
