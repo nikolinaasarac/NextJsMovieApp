@@ -3,6 +3,7 @@ import { moviesService } from "@/lib/api/movieService";
 import { Movie } from "@/models/Movie";
 import { TvShow } from "@/models/TvShow";
 import {MediaDetails} from "@/models/MediaDetails";
+import {notFound} from "next/navigation";
 
 
 
@@ -50,6 +51,7 @@ export function useMediaDetails(id: string, type: "movie" | "tv") {
 
         fetchMedia();
     }, [id, type]);
+
 
     return { details, loading };
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import {notFound, useParams, useRouter, useSearchParams} from "next/navigation";
 import { useEffect, useState } from "react";
 import TabSelector from "@/components/TabSelector";
 import Search from "@/components/Search";
@@ -23,6 +23,10 @@ export default function Home() {
     const [data, setData] = useState<Movie[] | TvShow[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+
+    if(typeParam!== "shows" && typeParam!== "movies"){
+        notFound();
+    }
 
     useEffect(() => {
         setActiveTab(typeParam || "shows");
