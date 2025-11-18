@@ -20,8 +20,8 @@ export default function ShowCard({data}: Props) {
         <Link href={path}>
             <Card
                 className="flex flex-col p-0 overflow-hidden transition-all duration-300
-       hover:scale-102 hover:shadow-lg hover:border hover:border-amber-600
-       w-[160px] sm:w-[200px] md:w-[258px] cursor-pointer h-full"
+    hover:scale-102 hover:shadow-lg hover:border hover:border-amber-600
+    w-full cursor-pointer h-full"
             >
                 <div className="w-full aspect-[2/3] relative overflow-hidden flex-shrink-0">
                     <Image
@@ -32,14 +32,15 @@ export default function ShowCard({data}: Props) {
                     />
                 </div>
 
-                <CardHeader className="overflow-hidden">
+                <CardHeader className="overflow-hidden h-[48px] sm:h-[56px] md:h-[64px]">
                     <CardTitle className="text-sm sm:text-base md:text-lg line-clamp-2">
                         {title}
                     </CardTitle>
                 </CardHeader>
 
-                <CardContent className="text-xs sm:text-sm md:text-base text-gray-600 flex flex-col gap-1 pb-2 mt ">
-                    ⭐ {voteAverage}/10
+                <CardContent className="text-xs sm:text-sm md:text-base text-gray-600 flex flex-col gap-1 pb-2 mt font-bold
+                items-center">
+                    ⭐ {voteAverage.toFixed(1)}/10
                 </CardContent>
             </Card>
         </Link>

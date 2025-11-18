@@ -50,7 +50,7 @@ export default function MediaDetails() {
 
     return (
         <div className="p-4 max-w-4xl mx-auto">
-            <Button onClick={() => router.back()} className="ml-4 mb-4 cursor-pointer">
+            <Button onClick={() => router.back()} className="ml-5 mb-4 cursor-pointer">
                 Back
             </Button>
 
