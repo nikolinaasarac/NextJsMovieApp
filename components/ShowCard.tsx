@@ -25,7 +25,7 @@ export default function ShowCard({data}: Props) {
             >
                 <div className="w-full aspect-[2/3] relative overflow-hidden flex-shrink-0">
                     <Image
-                        src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+                        src={data.poster_path ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : "/noImagePlaceholder.svg"}
                         alt={title}
                         fill
                         className="object-cover"
