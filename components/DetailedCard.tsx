@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { Video } from "@/models/Video";
 import { MediaDetails } from "@/models/MediaDetails";
+import {Section} from "@/components/Section";
+import {InfoBadge} from "@/components/InfoBadge";
 
 interface Props {
     details: MediaDetails;
@@ -10,7 +12,6 @@ interface Props {
 }
 
 export default function DetailedCard({ details, trailer }: Props) {
-    console.log(details);
     return (
         <div className="max-w-5xl mx-auto p-6 space-y-8">
 
@@ -23,7 +24,7 @@ export default function DetailedCard({ details, trailer }: Props) {
                     />
                 ) : (
                     <Image
-                        src={`https://image.tmdb.org/t/p/w780${details.image}`}
+                        src={details.image ? `https://image.tmdb.org/t/p/w780${details.image}` : "/noImagePlaceholder.jpg"}
                         alt={details.title}
                         fill
                         className="object-cover"
@@ -32,7 +33,6 @@ export default function DetailedCard({ details, trailer }: Props) {
                 )}
             </div>
 
-            {/* HEADER INFO */}
             <div className="space-y-2">
                 {details.tagline && (
                     <p className="text-gray-400 italic text-lg">{details.tagline}</p>
@@ -80,24 +80,6 @@ export default function DetailedCard({ details, trailer }: Props) {
             <Section title="Overview">
                 <p className="text-black leading-relaxed">{details.overview}</p>
             </Section>
-        </div>
-    );
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-    return (
-        <div className="space-y-2">
-            <h2 className="text-xl font-semibold text-gray-700">{title}</h2>
-            {children}
-        </div>
-    );
-}
-
-function InfoBadge({ label, value }: { label: string; value: string }) {
-    return (
-        <div className="bg-gray-800 text-gray-200 p-3 rounded-lg shadow flex flex-col">
-            <span className="text-xs opacity-70">{label}</span>
-            <span className="font-semibold">{value}</span>
         </div>
     );
 }
