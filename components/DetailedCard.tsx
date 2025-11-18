@@ -24,7 +24,7 @@ export default function DetailedCard({ details, trailer }: Props) {
                     />
                 ) : (
                     <Image
-                        src={details.image ? `https://image.tmdb.org/t/p/w780${details.image}` : "/noImagePlaceholder.svg"}
+                        src={details.image ? `https://image.tmdb.org/t/p/w780${details.image}` : "/noImagePlaceholder.jpg"}
                         alt={details.title}
                         fill
                         className="object-cover"
