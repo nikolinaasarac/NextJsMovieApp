@@ -42,7 +42,7 @@ export default function DetailedCard({ details, trailer }: Props) {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
                 {details.date && <InfoBadge label="Release" value={details.date} />}
-                {details.rating && <InfoBadge label="Rating" value={`${details.rating}/10`} />}
+                {details.rating && <InfoBadge label="Rating" value={`${details.rating.toFixed(1)}/10`} />}
                 {details.status && <InfoBadge label="Status" value={details.status} />}
                 {details.originalLanguage && <InfoBadge label="Language" value={details.originalLanguage} />}
                 {details.popularity !== undefined && <InfoBadge label="Popularity" value={details.popularity.toString()} />}

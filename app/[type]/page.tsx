@@ -34,6 +34,7 @@ export default function Home() {
     }, [typeParam, querySearch]);
 
     useEffect(() => {
+
         const query = searchTerm.length >= 3 ? `?search=${encodeURIComponent(searchTerm)}` : "";
         router.replace(`/${activeTab}${query}`);
     }, [activeTab, searchTerm, router]);
@@ -42,7 +43,6 @@ export default function Home() {
         async function loadData() {
             setLoading(true);
             setError("");
-            setData(null); // reset data da se odmah pokaže skeleton
 
             try {
                 if (searchTerm.length >= 3) {
@@ -82,8 +82,8 @@ export default function Home() {
 
                 {error && <p className="text-red-500">{error}</p>}
 
-                <div className="pt-6 grid gap-4 justify-center
-    grid-cols-[repeat(auto-fit,minmax(250px,1fr))] items-stretch">
+                <div className="pt-6 grid gap-4 w-full
+                    grid-cols-[repeat(auto-fit,minmax(250px,1fr))] items-stretch">
                     {loading || !data
                         ? Array.from({ length: 10 }).map((_, i) => <ShowCardSkeleton key={i} />)
                         : data.length > 0
